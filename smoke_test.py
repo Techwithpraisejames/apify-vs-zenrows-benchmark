@@ -28,9 +28,9 @@ TARGETS = [
     {"name": "Glassdoor company page",     "url": "https://www.glassdoor.com/Overview/Working-at-Google-EI_IE9079.11,17.htm"},
     {"name": "Idealista property listing", "url": "https://www.idealista.com/inmueble/100549085/"},
     {"name": "Google SERP",                "url": "https://www.google.com/search?q=web+scraping+tools"},
-    {"name": "Gymshark (Cloudflare)",      "url": "https://www.gymshark.com/collections/all-mens"},
-    {"name": "Reuters (unprotected news)", "url": "https://www.reuters.com/technology/"},
-    {"name": "Scrapy docs (static docs)",  "url": "https://docs.scrapy.org/en/latest/"},
+    {"name": "Gymshark",                   "url": "https://www.gymshark.com/collections/all-mens"},
+    {"name": "HackerNews",                 "url": "https://www.news.ycombinator.com/"},
+    {"name": "Scrapy docs",                "url": "https://docs.scrapy.org/en/latest/"},
 ]
 
 
