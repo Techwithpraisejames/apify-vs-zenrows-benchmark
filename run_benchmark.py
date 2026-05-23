@@ -7,23 +7,6 @@ Records per request (as specified in the brief):
   - HTTP status code (200 = success for ZenRows; 201 = success for Apify)
   - Response time in milliseconds
   - Whether the returned HTML contains a valid page title
-  - Tool used / target name
-
-Cost per request is calculated separately in cost_calculator.py.
-
-Usage:
-  python run_benchmark.py --tool zenrows
-  python run_benchmark.py --tool apify
-  python run_benchmark.py --tool both
-
-Environment variables (set in .env):
-  ZENROWS_API_KEY
-  APIFY_API_TOKEN
-
-Output:
-  results/raw_<tool>_<timestamp>.csv   — one row per request
-  results/summary_<tool>_<timestamp>.csv — aggregated per target
-"""
 
 import asyncio
 import argparse
