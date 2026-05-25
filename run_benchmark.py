@@ -7,6 +7,7 @@ Records per request (as specified in the brief):
   - HTTP status code (200 = success for ZenRows; 201 = success for Apify)
   - Response time in milliseconds
   - Whether the returned HTML contains a valid page title
+"""
 
 import asyncio
 import argparse
