@@ -36,4 +36,4 @@ Reproducible benchmark for the article
 
 ## Test date
 
-May 2026. Rerun results may differ as sites update their anti-bot configurations.
+23rd May 2026. Rerun results may differ as sites update their anti-bot configurations.
