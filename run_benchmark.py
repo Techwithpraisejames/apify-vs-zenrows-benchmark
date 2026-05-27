@@ -1,14 +1,3 @@
-"""
-run_benchmark.py
-================
-ZenRows vs Apify — 7 targets, 200 requests each, 2 req/s.
-
-Records per request (as specified in the brief):
-  - HTTP status code (200 = success for ZenRows; 201 = success for Apify)
-  - Response time in milliseconds
-  - Whether the returned HTML contains a valid page title
-"""
-
 import asyncio
 import argparse
 import csv
@@ -23,9 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ---------------------------------------------------------------------------
 # Config
-# ---------------------------------------------------------------------------
 
 REQUESTS_PER_TARGET = 200
 CONCURRENCY         = 2      # max in-flight requests at once
@@ -35,9 +22,7 @@ ZENROWS_API_KEY = os.getenv("ZENROWS_API_KEY", "")
 APIFY_API_TOKEN = os.getenv("APIFY_API_TOKEN", "")
 APIFY_ACTOR_ID  = "apify~playwright-scraper"
 
-# ---------------------------------------------------------------------------
 # Targets
-# ---------------------------------------------------------------------------
 
 TARGETS = [
     {"name": "Amazon product page",        "url": "https://www.amazon.com/dp/B09X7CRKRZ"},
@@ -48,10 +33,6 @@ TARGETS = [
     {"name": "HackerNews",                 "url": "https://news.ycombinator.com"},
     {"name": "Scrapy docs",                "url": "https://docs.scrapy.org/en/latest/"},
 ]
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 
 def extract_title(html: str) -> str:
     try:
@@ -69,10 +50,6 @@ def ensure_results_dir():
 
 def now_ts() -> str:
     return datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-
-# ---------------------------------------------------------------------------
-# Rate limiter
-# ---------------------------------------------------------------------------
 
 class TokenBucket:
     def __init__(self, rate: float):
@@ -92,10 +69,7 @@ class TokenBucket:
                 return
             await asyncio.sleep(0.05)
 
-# ---------------------------------------------------------------------------
 # ZenRows — mode=auto
-# ---------------------------------------------------------------------------
-
 async def zenrows_request(
     session:   aiohttp.ClientSession,
     target:    dict,
@@ -134,10 +108,7 @@ async def zenrows_request(
         "success":     status == 200 and bool(title),
     }
 
-# ---------------------------------------------------------------------------
-# Apify — apify~playwright-scraper (general-purpose, all targets)
-# ---------------------------------------------------------------------------
-
+# Apify — apify~playwright-scraper
 async def apify_request(
     session:   aiohttp.ClientSession,
     target:    dict,
@@ -194,10 +165,7 @@ async def apify_request(
         "success":     status == 201 and bool(title),
     }
 
-# ---------------------------------------------------------------------------
 # Runner
-# ---------------------------------------------------------------------------
-
 async def run_tool(tool: str, targets: list[dict]) -> list[dict]:
     semaphore = asyncio.Semaphore(CONCURRENCY)
     bucket    = TokenBucket(RATE_PER_SECOND)
@@ -226,10 +194,7 @@ async def run_tool(tool: str, targets: list[dict]) -> list[dict]:
 
     return all_results
 
-# ---------------------------------------------------------------------------
 # Output
-# ---------------------------------------------------------------------------
-
 RAW_FIELDS = ["tool", "target", "url", "status_code", "response_ms", "has_title", "title", "success"]
 
 def write_raw(results: list[dict], tool: str, ts: str):
@@ -284,10 +249,8 @@ def print_table(results: list[dict], tool: str):
         print(f"  {target[:36]:<36} {ok:>5} {len(reqs):>6} {ok/len(reqs)*100:>6.1f}% {avg:>7}ms")
     print(f"{'─'*68}")
 
-# ---------------------------------------------------------------------------
-# Entrypoint
-# ---------------------------------------------------------------------------
 
+# Entrypoint
 def main():
     global REQUESTS_PER_TARGET
     parser = argparse.ArgumentParser()
