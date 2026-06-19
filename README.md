@@ -7,12 +7,12 @@ Reproducible benchmark for the article
 
 | # | Target | Type |
 |---|--------|------|
-| 1 | amazon.com product page | Protected |
+| 1 | walmart.com product page | Protected |
 | 2 | glassdoor.com company page | Protected (DataDome) |
-| 3 | idealista.com property listing | Protected (anti-bot) |
+| 3 | bayut.com property search | Protected |
 | 4 | google.com SERP | Protected |
-| 5 | gymshark.com product listing | Protected (Cloudflare) |
-| 6 | news.ycombinator.com | Unprotected news |
+| 5 | ikea.com product page | Protected |
+| 6 | news.ycombinator.com | Unprotected |
 | 7 | docs.scrapy.org | Static documentation |
 
 **200 requests per target per tool. 2 requests/second. Concurrency: 2.**
@@ -36,4 +36,4 @@ Reproducible benchmark for the article
 
 ## Test date
 
-23rd May 2026. Rerun results may differ as sites update their anti-bot configurations.
+19th June 2026. Rerun results may differ as sites update their anti-bot configurations.
