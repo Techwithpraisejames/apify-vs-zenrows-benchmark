@@ -5,15 +5,15 @@ Reproducible benchmark for the article
 
 ## What this tests
 
-| # | Target | Type | ZenRows score |
-|---|--------|------|---------------|
-| 1 | walmart.com product page | Protected | 100 |
-| 2 | glassdoor.com company page | Protected | 99.5 |
-| 3 | bayut.com property search | Protected | 100 |
-| 4 | google.com SERP | Protected | 95 |
-| 5 | ikea.com product page | Protected | 100 |
-| 6 | news.ycombinator.com | Unprotected | 100 |
-| 7 | docs.scrapy.org | Static documentation | 100 |
+| # | Target | Type | ZenRows score | Apify score |
+|---|--------|------|---------------|-------------|
+| 1 | walmart.com product page | Protected | 100 | 7.5 |
+| 2 | glassdoor.com company page | Protected | 99.5 | 11 |
+| 3 | bayut.com property search | Protected | 100 | 35 |
+| 4 | google.com SERP | Protected | 95 | 79 |
+| 5 | ikea.com product page | Protected | 100 | 2.5 |
+| 6 | news.ycombinator.com | Unprotected | 100 | 99.5 |
+| 7 | docs.scrapy.org | Static documentation | 100 | 64.5 |
 
 **200 requests per target per tool. 2 requests/second. Concurrency: 2.**
 
