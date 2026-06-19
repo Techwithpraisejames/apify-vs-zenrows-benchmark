@@ -16,7 +16,7 @@ load_dotenv()
 
 REQUESTS_PER_TARGET = 200
 CONCURRENCY         = 2      # max in-flight requests at once
-RATE_PER_SECOND     = 2.0    # 2 req/s as specified in the brief
+RATE_PER_SECOND     = 2.0    # 2 req/s 
 
 ZENROWS_API_KEY = os.getenv("ZENROWS_API_KEY", "")
 APIFY_API_TOKEN = os.getenv("APIFY_API_TOKEN", "")
@@ -25,11 +25,11 @@ APIFY_ACTOR_ID  = "apify~playwright-scraper"
 # Targets
 
 TARGETS = [
-    {"name": "Amazon product page",        "url": "https://www.amazon.com/dp/B09X7CRKRZ"},
+    {"name": "Walmart product listing",        "url": "https://www.walmart.com/ip/AirPods-Pro-2nd-generation-with-MagSafe-Case-USB-C/5689919121"},
     {"name": "Glassdoor company page",     "url": "https://www.glassdoor.com/Overview/Working-at-Google-EI_IE9079.11,17.htm"},
-    {"name": "Idealista property listing", "url": "https://www.idealista.com/inmueble/100549085/"},
+    {"name": "Bayut property search", "url": "https://www.bayut.com/for-sale/property/dubai/"},
     {"name": "Google SERP",                "url": "https://www.google.com/search?q=web+scraping+tools"},
-    {"name": "Gymshark",                   "url": "https://www.gymshark.com/collections/all-mens"},
+    {"name": "IKEA product page",                   "url": "https://www.ikea.com/us/en/p/kallax-shelf-unit-white-80275887/"},
     {"name": "HackerNews",                 "url": "https://news.ycombinator.com"},
     {"name": "Scrapy docs",                "url": "https://docs.scrapy.org/en/latest/"},
 ]
